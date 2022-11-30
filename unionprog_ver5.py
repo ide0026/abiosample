@@ -718,7 +718,7 @@ if checkbox == True and uploaded_file0 and uploaded_file1 and '複数ファイ�
     #サイドバーの温室番号選ぶ
     listnum = ['1','2','3','4','5','6','7','8','9']
     stocks = st.sidebar.selectbox(label="温室番号の選択",
-                options = listnum)
+                options = listnum,key=4)
     select_onsitu = int(stocks[0])
 
     #温室の識別
