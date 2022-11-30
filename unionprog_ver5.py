@@ -741,7 +741,7 @@ if checkbox == True and uploaded_file0 and uploaded_file1 and '複数ファイ�
                                 marker_color='blue',
                                 line_width=3,
                                 yaxis='y1',
-                                name=select_dates))
+                                name='1'))
         situdofig.add_traces(go.Scattergl(x=df_ex1["月日時間"],
                                 y=df_ex1['相対湿度'] ,
                                 marker_color='blue',
