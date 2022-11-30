@@ -711,7 +711,7 @@ if checkbox == True and uploaded_file0 and uploaded_file1 and uploaded_file2 and
     st.plotly_chart(CO2fig)
 
 #===============2ファイル比較グラフ=======================
-if checkbox == True and uploaded_file0 and uploaded_file1 and '複数ファイルグラフ' in grafustock:
+if checkbox == True and uploaded_file0 and uploaded_file1 and not uploaded_file2 and '複数ファイルグラフ' in grafustock:
     #ヘッダー
     st.header("2ファイル比較グラフ")
 
