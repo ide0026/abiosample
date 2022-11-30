@@ -57,7 +57,7 @@ if checkbox:
 
 #表示グラフの切り替え
 listgrafu = ['データ別4グラフ','相関2軸グラフ','前日比較グラフ','複数ファイルグラフ']
-grafustock = st.selectbox(label="表示グラフを選択してください",options=listgrafu)
+grafustock = st.selectbox(label="表示グラフを選択してください",options=listgrafu,key=3)
 
 #1つ目のファイル読み込み
 if uploaded_file0:
