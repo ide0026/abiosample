@@ -151,7 +151,7 @@ if uploaded_file0 and 'データ別4グラフ' in grafustock:
                                 yaxis='y1'))
         situdofig.add_traces(go.Scattergl(x=df_ex1[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex1['相対湿度'] ,
-                                marker_color='paleturquoise',
+                                marker_color='dodgerblue',
                                 line_width=3,
                                 name='1',
                                 yaxis='y1'))
