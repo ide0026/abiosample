@@ -432,25 +432,25 @@ if uploaded_file0 and '相関2軸グラフ' in grafustock:
     #温室ごとグラフデータ定義
     a1 = go.Scattergl(x=chooseonsitu[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y= chooseonsitu['温度'] ,
-                                marker_color='blue',
+                                marker_color='skyblue',
                                 line_width=3,
                                 yaxis='y1',
                                 name='温度')
     a2= go.Scattergl(x=chooseonsitu[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=chooseonsitu['相対湿度'] ,
-                                marker_color='red',
+                                marker_color='orangered',
                                 line_width=3,
                                 yaxis='y1',
                                 name='相対湿度')                         
     a3 = go.Scattergl(x=chooseonsitu[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=chooseonsitu['日射'] ,
-                                marker_color='green',
+                                marker_color='mediumseagreen',
                                 line_width=3,
                                 yaxis='y2',
                                 name='日射')               
     a4= go.Scattergl(x=chooseonsitu[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=chooseonsitu['CO2濃度'] ,
-                                marker_color='orange',
+                                marker_color='coral',
                                 line_width=3,
                                 yaxis='y2',
                                 name='CO2濃度')
