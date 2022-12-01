@@ -429,30 +429,30 @@ if uploaded_file0 and '相関2軸グラフ' in grafustock:
         chooseonsitu = df_ex9
 
     #温室ごとグラフデータ定義
-    a1 = go.Scattergl(x=chooseonsitu[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
-                                y= chooseonsitu['温度'] ,
-                                marker_color='orangered',
-                                line_width=3,
-                                yaxis='y1',
-                                name='温度')
-    a2= go.Scattergl(x=chooseonsitu[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
-                                y=chooseonsitu['相対湿度'] ,
-                                marker_color='dodgerblue',
-                                line_width=3,
-                                yaxis='y1',
-                                name='相対湿度')                         
-    a3 = go.Scattergl(x=chooseonsitu[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
-                                y=chooseonsitu['日射'] ,
-                                marker_color='mediumseagreen',
-                                line_width=3,
-                                yaxis='y2',
-                                name='日射')               
     a4= go.Scattergl(x=chooseonsitu[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=chooseonsitu['CO2濃度'] ,
                                 marker_color='darkorange',
                                 line_width=3,
                                 yaxis='y2',
                                 name='CO2濃度')
+    a3 = go.Scattergl(x=chooseonsitu[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
+                                y=chooseonsitu['日射'] ,
+                                marker_color='mediumseagreen',
+                                line_width=3,
+                                yaxis='y2',
+                                name='日射')
+    a2= go.Scattergl(x=chooseonsitu[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
+                                y=chooseonsitu['相対湿度'] ,
+                                marker_color='dodgerblue',
+                                line_width=3,
+                                yaxis='y1',
+                                name='相対湿度')
+    a1 = go.Scattergl(x=chooseonsitu[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
+                                y= chooseonsitu['温度'] ,
+                                marker_color='orangered',
+                                line_width=3,
+                                yaxis='y1',
+                                name='温度')
     #レイアウト設定
     layout = go.Layout(title=dict(text='<b>【相関グラフ】'),xaxis = dict(title = '日付'), font=dict(size=15),
               yaxis1 = dict(side = 'left',showgrid=False,range = [0, 110]),                            
