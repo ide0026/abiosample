@@ -7,7 +7,7 @@ st.set_page_config(page_title="環境分析",layout="wide",initial_sidebar_state
 
  #レイアウト設定 
 layout_Ondo = go.Layout(title=dict(text='<b>【温度】'),
-                    yaxis = dict(side = 'left',range = [0, 60]),
+                    yaxis = dict(side = 'left',range = [0, 55]),
                     font=dict(size=15),
                     legend=dict(xanchor='left',
                     yanchor='bottom',
@@ -48,12 +48,12 @@ st.title("環境分析")
 
 # データフレーム読み込み
 st.sidebar.write("""## ファイルアップロード""")
-uploaded_file0 = st.sidebar.file_uploader("分析したいファイルをアップロードしてください", type='csv',key=0)
-checkbox = st.sidebar.checkbox('複数ファイルをアップロード')
+uploaded_file0 = st.sidebar.file_uploader("ファイル➀をアップロードしてください", type='csv',key=0)
+checkbox = st.sidebar.checkbox('複数ファイルアップロード')
 if checkbox:
         # チェックが入っているときはデータフレームを書き出す
-        uploaded_file1 = st.sidebar.file_uploader("分析したいファイルをアップロードしてください.", type='csv',key=1)
-        uploaded_file2 = st.sidebar.file_uploader("分析したいファイルをアップロードしてください.", type='csv',key=2)
+        uploaded_file1 = st.sidebar.file_uploader("ファイル➁をアップロードしてください.", type='csv',key=1)
+        uploaded_file2 = st.sidebar.file_uploader("ファイル➂をアップロードしてください.", type='csv',key=2)
 
 #表示グラフの切り替え
 listgrafu = ['データ別4グラフ','相関2軸グラフ','前日比較グラフ','複数ファイルグラフ']
@@ -122,15 +122,11 @@ if checkbox == True and uploaded_file2:
 #===============データ別4グラフ=======================
 if uploaded_file0 and 'データ別4グラフ' in grafustock:
     #ヘッダー
-    st.header("【温度・相対湿度・日射・CO2濃度のグラフ】")
+    st.header("【温度・日射・相対湿度・CO2濃度のグラフ】")
 
     #サイドバーの日付選ぶ
-    st.sidebar.write("""
-    # オプション設定
-    以下のオプションから表示日数・温室を指定できます。
-    """)
     st.sidebar.write("""## 表示日付・温室選択""")
-    select_dates = st.sidebar.date_input('表示したい日付の選択',value=(df_ex1.index[0],df_ex1.index[-1]),min_value=df_ex1.index[0],max_value=df_ex1.index[-1])
+    select_dates = st.sidebar.date_input('表示日付の選択',value=(df_ex1.index[0],df_ex1.index[-1]),min_value=df_ex1.index[0],max_value=df_ex1.index[-1])
 
     #温室番号選ぶ
     list = ['1','2','3','4','5','6','7','8','9']
@@ -407,13 +403,8 @@ if uploaded_file0 and '相関2軸グラフ' in grafustock:
     #ヘッダー
     st.header("相関2軸グラフ")
 
-    #サイドバーの日付選ぶ
-    st.sidebar.write("""
-    # オプション設定
-    以下のオプションから表示日数・温室を指定できます。
-    """)
     st.sidebar.write("""## 表示日付・温室選択""")
-    select_dates = st.sidebar.date_input('表示したい日付の選択',value=(df_ex1.index[0],df_ex1.index[-1]),min_value=df_ex1.index[0],max_value=df_ex1.index[-1])
+    select_dates = st.sidebar.date_input('表示日付の選択',value=(df_ex1.index[0],df_ex1.index[-1]),min_value=df_ex1.index[0],max_value=df_ex1.index[-1])
     
     #温室番号選ぶ
     listnum = ['1','2','3','4','5','6','7','8','9']
@@ -478,14 +469,10 @@ if uploaded_file0 and '前日比較グラフ' in grafustock:
     #ヘッダー
     st.header("前日比較グラフ")
     #サイドバーの日付選ぶ
-    st.sidebar.write("""
-    # オプション設定
-    以下のオプションから表示日数・温室を指定できます。
-    """)
     st.sidebar.write("""## 表示日付・温室選択""")
     #指定日の指定
     MMdd_list = sorted(set(df_ex1['月日'].to_list()))
-    select_dates = st.sidebar.selectbox('何月何日を比較しますか?',MMdd_list)
+    select_dates = st.sidebar.selectbox('表示日付の選択',MMdd_list)
     #指定日の前日
     if select_dates == MMdd_list[0]:
         secondselect_dates_index = MMdd_list.index(select_dates)
@@ -604,10 +591,10 @@ if uploaded_file0 and '前日比較グラフ' in grafustock:
     st.plotly_chart(CO2fig)
 
 
-#===============3複数ファイルグラフ=======================
+#===============3ファイル比較グラフ=======================
 if checkbox == True and uploaded_file0 and uploaded_file1 and uploaded_file2 and '複数ファイルグラフ' in grafustock:
     #ヘッダー
-    st.header("複数ファイル")
+    st.header("3ファイルグラフ")
     #サイドバーの温室番号選ぶ
     listnum = ['1','2','3','4','5','6','7','8','9']
     stocks = st.sidebar.selectbox(label="温室番号の選択",
@@ -802,4 +789,4 @@ if checkbox == True and not uploaded_file0 and not uploaded_file1 and not upload
 if checkbox == False and uploaded_file0 and '複数ファイルグラフ' in grafustock :
     st.write("ファイルをアップロードしてください")
 if checkbox == True and uploaded_file0 and not uploaded_file1 and not uploaded_file2 and '複数ファイルグラフ' in grafustock:
-    st.write("複数ファイルをアップロードしてください")
+    st.write("ファイルをアップロードしてください")
