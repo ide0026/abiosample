@@ -455,7 +455,7 @@ if uploaded_file0 and '相関2軸グラフ' in grafustock:
                                 yaxis='y2',
                                 name='CO2濃度')
     #レイアウト設定
-    layout = go.Layout(title=dict(text='<b>【比較グラフ】'),xaxis = dict(title = '日付'), font=dict(size=15),
+    layout = go.Layout(title=dict(text='<b>【相関グラフ】'),xaxis = dict(title = '日付'), font=dict(size=15),
               yaxis1 = dict(side = 'left',showgrid=False,range = [0, 110]),                            
               yaxis2 = dict(side = 'right', overlaying = 'y1', range = [0,1100],showgrid=False),
               legend=dict(xanchor='left',yanchor='bottom',x=0.32,y=1.0,orientation='h'))
