@@ -784,6 +784,6 @@ if uploaded_file0 and uploaded_file1 and not uploaded_file2 and '複数ファイ
 
 #================エラー回避=====================
 if not uploaded_file0 and not uploaded_file1 and not uploaded_file2 and '複数ファイルグラフ' in grafustock:
-    st.write("ファイルをアップロードしてください")
+    st.write("複数ファイルをアップロードしてください")
 if uploaded_file0 and not uploaded_file1 and not uploaded_file2 and '複数ファイルグラフ' in grafustock:
-    st.write("ファイルをアップロードしてください")
+    st.write("複数ファイルをアップロードしてください")
