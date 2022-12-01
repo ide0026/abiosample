@@ -443,8 +443,6 @@ if uploaded_file0 and '相関2軸グラフ' in grafustock:
     #グラフ表示
     fig = dict(data = [a1, a2, a3, a4],layout= layout)
     st.plotly_chart(fig,width=900,height=1200)
-
-
 #===============前日比較グラフ=======================
 if uploaded_file0 and '前日比較グラフ' in grafustock:
     #ヘッダー
@@ -457,55 +455,144 @@ if uploaded_file0 and '前日比較グラフ' in grafustock:
     #指定日の前日
     if select_dates == MMdd_list[0]:
         secondselect_dates_index = MMdd_list.index(select_dates)
+        thirdselect_dates_index = MMdd_list.index(select_dates)
+        forth_dates_index = MMdd_list.index(select_dates)
+        fifth_dates_index = MMdd_list.index(select_dates)
+        sixth_dates_index = MMdd_list.index(select_dates)
+        seventh_dates_index = MMdd_list.index(select_dates)
+    elif select_dates == MMdd_list[1]:
+        secondselect_dates_index = MMdd_list.index(select_dates) - 1
+        thirdselect_dates_index = MMdd_list.index(select_dates)
+        forth_dates_index = MMdd_list.index(select_dates)
+        fifth_dates_index = MMdd_list.index(select_dates)
+        sixth_dates_index = MMdd_list.index(select_dates)
+        seventh_dates_index = MMdd_list.index(select_dates)
+    elif select_dates == MMdd_list[2]:
+        secondselect_dates_index = MMdd_list.index(select_dates) - 1
+        thirdselect_dates_index = MMdd_list.index(select_dates) - 2
+        forth_dates_index = MMdd_list.index(select_dates)
+        fifth_dates_index = MMdd_list.index(select_dates)
+        sixth_dates_index = MMdd_list.index(select_dates)
+        seventh_dates_index = MMdd_list.index(select_dates)
+    elif select_dates == MMdd_list[3]:
+        secondselect_dates_index = MMdd_list.index(select_dates) - 1
+        thirdselect_dates_index = MMdd_list.index(select_dates) - 2
+        forth_dates_index = MMdd_list.index(select_dates) - 3
+        fifth_dates_index = MMdd_list.index(select_dates)
+        sixth_dates_index = MMdd_list.index(select_dates)
+        seventh_dates_index = MMdd_list.index(select_dates)
+    elif select_dates == MMdd_list[4]:
+        secondselect_dates_index = MMdd_list.index(select_dates) - 1
+        thirdselect_dates_index = MMdd_list.index(select_dates) - 2
+        forth_dates_index = MMdd_list.index(select_dates) - 3
+        fifth_dates_index = MMdd_list.index(select_dates) - 4
+        sixth_dates_index = MMdd_list.index(select_dates)
+        seventh_dates_index = MMdd_list.index(select_dates)
+    elif select_dates == MMdd_list[5]:
+        secondselect_dates_index = MMdd_list.index(select_dates) - 1
+        thirdselect_dates_index = MMdd_list.index(select_dates) - 2
+        forth_dates_index = MMdd_list.index(select_dates) - 3
+        fifth_dates_index = MMdd_list.index(select_dates) - 4
+        sixth_dates_index = MMdd_list.index(select_dates) - 5
+        seventh_dates_index = MMdd_list.index(select_dates)
     else:
         secondselect_dates_index = MMdd_list.index(select_dates) - 1
-    
+        thirdselect_dates_index = MMdd_list.index(select_dates) - 2
+        forth_dates_index = MMdd_list.index(select_dates) - 3
+        fifth_dates_index = MMdd_list.index(select_dates) - 4
+        sixth_dates_index = MMdd_list.index(select_dates) - 5
+        seventh_dates_index = MMdd_list.index(select_dates) - 6
     secondselect_dates = MMdd_list[secondselect_dates_index]
-
+    thirdselect_dates = MMdd_list[thirdselect_dates_index]
+    forth_dates = MMdd_list[forth_dates_index]
+    fifth_dates = MMdd_list[fifth_dates_index]
+    sixth_dates = MMdd_list[sixth_dates_index]
+    seventh_dates = MMdd_list[seventh_dates_index]
     #温室番号選ぶ
     listnum = ['1','2','3','4','5','6','7','8','9']
     stocks = st.sidebar.selectbox(label="温室番号の選択",
                 options = listnum)
-
     if '1' in stocks:
         selectday = df_ex1[df_ex1['月日'] == select_dates]
         yesterday = df_ex1[df_ex1['月日'] == secondselect_dates]
+        third = df_ex1[df_ex1['月日'] == thirdselect_dates]
+        forth = df_ex1[df_ex1['月日'] == forth_dates]
+        fifth = df_ex1[df_ex1['月日'] == fifth_dates]
+        sixth = df_ex1[df_ex1['月日'] == sixth_dates]
+        seventh = df_ex1[df_ex1['月日'] == seventh_dates]
     if '2' in stocks:
         selectday = df_ex2[df_ex2['月日'] == select_dates]
         yesterday = df_ex2[df_ex2['月日'] == secondselect_dates]
+        third = df_ex2[df_ex2['月日'] == thirdselect_dates]
+        forth = df_ex2[df_ex2['月日'] == forth_dates]
+        fifth = df_ex2[df_ex2['月日'] == fifth_dates]
+        sixth = df_ex2[df_ex2['月日'] == sixth_dates]
+        seventh = df_ex2[df_ex2['月日'] == seventh_dates]
     if '3' in stocks:
         selectday = df_ex3[df_ex3['月日'] == select_dates]
         yesterday = df_ex3[df_ex3['月日'] == secondselect_dates]
+        third = df_ex3[df_ex3['月日'] == thirdselect_dates]
+        forth = df_ex3[df_ex3['月日'] == forth_dates]
+        fifth = df_ex3[df_ex3['月日'] == fifth_dates]
+        sixth = df_ex3[df_ex3['月日'] == sixth_dates]
+        seventh = df_ex3[df_ex3['月日'] == seventh_dates]
     if '4' in stocks:
         selectday = df_ex4[df_ex4['月日'] == select_dates]
         yesterday = df_ex4[df_ex4['月日'] == secondselect_dates]
+        third = df_ex4[df_ex4['月日'] == thirdselect_dates]
+        forth = df_ex4[df_ex4['月日'] == forth_dates]
+        fifth = df_ex4[df_ex4['月日'] == fifth_dates]
+        sixth = df_ex4[df_ex4['月日'] == sixth_dates]
+        seventh = df_ex4[df_ex4['月日'] == seventh_dates]
     if '5' in stocks:
         selectday = df_ex5[df_ex5['月日'] == select_dates]
         yesterday = df_ex5[df_ex5['月日'] == secondselect_dates]
+        third = df_ex5[df_ex5['月日'] == thirdselect_dates]
+        forth = df_ex5[df_ex5['月日'] == forth_dates]
+        fifth = df_ex5[df_ex5['月日'] == fifth_dates]
+        sixth = df_ex5[df_ex5['月日'] == sixth_dates]
+        seventh = df_ex5[df_ex5['月日'] == seventh_dates]
     if '6' in stocks:
         selectday = df_ex6[df_ex6['月日'] == select_dates]
         yesterday = df_ex6[df_ex6['月日'] == secondselect_dates]
+        third = df_ex6[df_ex6['月日'] == thirdselect_dates]
+        forth = df_ex6[df_ex6['月日'] == forth_dates]
+        fifth = df_ex6[df_ex6['月日'] == fifth_dates]
+        sixth = df_ex6[df_ex6['月日'] == sixth_dates]
+        seventh = df_ex6[df_ex6['月日'] == seventh_dates]
     if '7' in stocks:
         selectday = df_ex7[df_ex7['月日'] == select_dates]
         yesterday = df_ex7[df_ex7['月日'] == secondselect_dates]
+        third = df_ex7[df_ex7['月日'] == thirdselect_dates]
+        forth = df_ex7[df_ex7['月日'] == forth_dates]
+        fifth = df_ex7[df_ex7['月日'] == fifth_dates]
+        sixth = df_ex7[df_ex7['月日'] == sixth_dates]
+        seventh = df_ex7[df_ex7['月日'] == seventh_dates]
     if '8' in stocks:
         selectday = df_ex8[df_ex8['月日'] == select_dates]
         yesterday = df_ex8[df_ex8['月日'] == secondselect_dates]
+        third = df_ex8[df_ex8['月日'] == thirdselect_dates]
+        forth = df_ex8[df_ex8['月日'] == forth_dates]
+        fifth = df_ex8[df_ex8['月日'] == fifth_dates]
+        sixth = df_ex8[df_ex8['月日'] == sixth_dates]
+        seventh = df_ex8[df_ex8['月日'] == seventh_dates]
     if '9' in stocks:
         selectday = df_ex9[df_ex9['月日'] == select_dates]
         yesterday = df_ex9[df_ex9['月日'] == secondselect_dates]
-    
+        third = df_ex9[df_ex9['月日'] == thirdselect_dates]
+        forth = df_ex9[df_ex9['月日'] == forth_dates]
+        fifth = df_ex9[df_ex9['月日'] == fifth_dates]
+        sixth = df_ex9[df_ex9['月日'] == sixth_dates]
+        seventh = df_ex9[df_ex9['月日'] == seventh_dates]
     #レイアウト設定
     layout = go.Layout(title=dict(text='<b>【比較グラフ】'),xaxis = dict(title = '日付'), font=dict(size=15),
               yaxis1 = dict(side = 'left', showgrid=False,range = [0, 110]),                            
               legend=dict(xanchor='left',yanchor='bottom',x=0.32,y=1.0,orientation='h'))
-
     #温室ごとグラフデータ定義
     ondofig = go.Figure(layout=layout_Ondo)
     situdofig = go.Figure(layout=layout_Situdo)
     nisyafig = go.Figure(layout=layout_Nisya)
     CO2fig = go.Figure(layout=layout_Co2)
-
     def ondo():
         ondofig.add_traces(go.Scattergl(x=selectday["時間"],
                                 y= selectday['温度'] ,
@@ -519,45 +606,165 @@ if uploaded_file0 and '前日比較グラフ' in grafustock:
                                 line_width=1,
                                 yaxis='y1',
                                 name=secondselect_dates))
+        ondofig.add_traces(go.Scattergl(x=third["時間"],
+                                y= third['温度'] ,
+                                marker_color='pink',
+                                line_width=1,
+                                yaxis='y1',
+                                name=thirdselect_dates))
+        ondofig.add_traces(go.Scattergl(x=forth["時間"],
+                                y= forth['温度'] ,
+                                marker_color='dodgerblue',
+                                line_width=1,
+                                yaxis='y1',
+                                name=forth_dates))
+        ondofig.add_traces(go.Scattergl(x=fifth["時間"],
+                                y= fifth['温度'] ,
+                                marker_color='darkorange',
+                                line_width=1,
+                                yaxis='y1',
+                                name=fifth_dates))
+        ondofig.add_traces(go.Scattergl(x=sixth["時間"],
+                                y= sixth['温度'] ,
+                                marker_color='mediumpurple',
+                                line_width=1,
+                                yaxis='y1',
+                                name=sixth_dates))
+        ondofig.add_traces(go.Scattergl(x=seventh["時間"],
+                                y= seventh['温度'] ,
+                                marker_color='tan',
+                                line_width=1,
+                                yaxis='y1',
+                                name=seventh_dates))    
     def nisya():
-         nisyafig.add_traces(go.Scattergl(x=selectday["時間"],
+        nisyafig.add_traces(go.Scattergl(x=selectday["時間"],
                                 y= selectday['日射'] ,
                                 marker_color='mediumseagreen',
                                 line_width=1,
                                 yaxis='y1',
                                 name=select_dates))
-         nisyafig.add_traces(go.Scattergl(x=yesterday["時間"],
+        nisyafig.add_traces(go.Scattergl(x=yesterday["時間"],
                                 y=yesterday['日射'] ,
                                 marker_color='orangered',
                                 line_width=1,
                                 yaxis='y1',
                                 name=secondselect_dates))
+        nisyafig.add_traces(go.Scattergl(x=third["時間"],
+                                y= third['日射'] ,
+                                marker_color='pink',
+                                line_width=1,
+                                yaxis='y1',
+                                name=thirdselect_dates))
+        nisyafig.add_traces(go.Scattergl(x=forth["時間"],
+                                y= forth['日射'] ,
+                                marker_color='dodgerblue',
+                                line_width=1,
+                                yaxis='y1',
+                                name=forth_dates))
+        nisyafig.add_traces(go.Scattergl(x=fifth["時間"],
+                                y= fifth['日射'] ,
+                                marker_color='darkorange',
+                                line_width=1,
+                                yaxis='y1',
+                                name=fifth_dates))
+        nisyafig.add_traces(go.Scattergl(x=sixth["時間"],
+                                y= sixth['日射'] ,
+                                marker_color='mediumpurple',
+                                line_width=1,
+                                yaxis='y1',
+                                name=sixth_dates))
+        nisyafig.add_traces(go.Scattergl(x=seventh["時間"],
+                                y= seventh['日射'] ,
+                                marker_color='tan',
+                                line_width=1,
+                                yaxis='y1',
+                                name=seventh_dates))                                
     def situdo():
-         situdofig.add_traces(go.Scattergl(x=selectday["時間"],
+        situdofig.add_traces(go.Scattergl(x=selectday["時間"],
                                 y= selectday['相対湿度'] ,
                                 marker_color='mediumseagreen',
                                 line_width=1,
                                 yaxis='y1',
                                 name=select_dates))
-         situdofig.add_traces(go.Scattergl(x=yesterday["時間"],
+        situdofig.add_traces(go.Scattergl(x=yesterday["時間"],
                                 y=yesterday['相対湿度'] ,
                                 marker_color='orangered',
                                 line_width=1,
                                 yaxis='y1',
                                 name=secondselect_dates))
+        situdofig.add_traces(go.Scattergl(x=third["時間"],
+                                y= third['相対湿度'] ,
+                                marker_color='pink',
+                                line_width=1,
+                                yaxis='y1',
+                                name=thirdselect_dates))
+        situdofig.add_traces(go.Scattergl(x=forth["時間"],
+                                y= forth['相対湿度'] ,
+                                marker_color='dodgerblue',
+                                line_width=1,
+                                yaxis='y1',
+                                name=forth_dates))
+        situdofig.add_traces(go.Scattergl(x=fifth["時間"],
+                                y= fifth['相対湿度'] ,
+                                marker_color='darkorange',
+                                line_width=1,
+                                yaxis='y1',
+                                name=fifth_dates))
+        situdofig.add_traces(go.Scattergl(x=sixth["時間"],
+                                y= sixth['相対湿度'] ,
+                                marker_color='mediumpurple',
+                                line_width=1,
+                                yaxis='y1',
+                                name=sixth_dates))
+        situdofig.add_traces(go.Scattergl(x=seventh["時間"],
+                                y= seventh['相対湿度'] ,
+                                marker_color='tan',
+                                line_width=1,
+                                yaxis='y1',
+                                name=seventh_dates))                                
     def CO2():
         CO2fig.add_traces(go.Scattergl(x=selectday["時間"],
                                 y= selectday['CO2濃度'] ,
                                 marker_color='mediumseagreen',
                                 line_width=1,
                                 yaxis='y1',
-                                name=select_dates)) 
+                                name=select_dates))
         CO2fig.add_traces(go.Scattergl(x=yesterday["時間"],
                                 y=yesterday['CO2濃度'] ,
                                 marker_color='orangered',
                                 line_width=1,
                                 yaxis='y1',
-                                name=secondselect_dates))   
+                                name=secondselect_dates))
+        CO2fig.add_traces(go.Scattergl(x=third["時間"],
+                                y= third['CO2濃度'] ,
+                                marker_color='pink',
+                                line_width=1,
+                                yaxis='y1',
+                                name=thirdselect_dates))
+        CO2fig.add_traces(go.Scattergl(x=forth["時間"],
+                                y= forth['CO2濃度'] ,
+                                marker_color='dodgerblue',
+                                line_width=1,
+                                yaxis='y1',
+                                name=forth_dates))
+        CO2fig.add_traces(go.Scattergl(x=fifth["時間"],
+                                y= fifth['CO2濃度'] ,
+                                marker_color='darkorange',
+                                line_width=1,
+                                yaxis='y1',
+                                name=fifth_dates))
+        CO2fig.add_traces(go.Scattergl(x=sixth["時間"],
+                                y= sixth['CO2濃度'] ,
+                                marker_color='mediumpurple',
+                                line_width=1,
+                                yaxis='y1',
+                                name=sixth_dates))
+        CO2fig.add_traces(go.Scattergl(x=seventh["時間"],
+                                y= seventh['CO2濃度'] ,
+                                marker_color='tan',
+                                line_width=1,
+                                yaxis='y1',
+                                name=seventh_dates))                                
     ondo()
     nisya()
     situdo()
@@ -570,7 +777,6 @@ if uploaded_file0 and '前日比較グラフ' in grafustock:
     st.plotly_chart(situdofig)
     #CO2濃度グラフ表示
     st.plotly_chart(CO2fig)
-
 
 #===============3ファイル比較グラフ=======================
 if uploaded_file0 and uploaded_file1 and uploaded_file2 and '複数ファイルグラフ' in grafustock:
