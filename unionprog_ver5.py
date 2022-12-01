@@ -541,39 +541,39 @@ if uploaded_file0 and '前日比較グラフ' in grafustock:
     def nisya():
          nisyafig.add_traces(go.Scattergl(x=selectday["時間"],
                                 y= selectday['日射'] ,
-                                marker_color='blue',
+                                marker_color='mediumseagreen',
                                 line_width=3,
                                 yaxis='y1',
                                 name=select_dates))
          nisyafig.add_traces(go.Scattergl(x=yesterday["時間"],
                                 y=yesterday['日射'] ,
-                                marker_color='red',
+                                marker_color='orangered',
                                 line_width=3,
                                 yaxis='y1',
                                 name=secondselect_dates))
     def situdo():
          situdofig.add_traces(go.Scattergl(x=selectday["時間"],
                                 y= selectday['相対湿度'] ,
-                                marker_color='blue',
+                                marker_color='mediumseagreen',
                                 line_width=3,
                                 yaxis='y1',
                                 name=select_dates))
          situdofig.add_traces(go.Scattergl(x=yesterday["時間"],
                                 y=yesterday['相対湿度'] ,
-                                marker_color='red',
+                                marker_color='orangered',
                                 line_width=3,
                                 yaxis='y1',
                                 name=secondselect_dates))
     def CO2():
         CO2fig.add_traces(go.Scattergl(x=selectday["時間"],
                                 y= selectday['CO2濃度'] ,
-                                marker_color='blue',
+                                marker_color='mediumseagreen',
                                 line_width=3,
                                 yaxis='y1',
                                 name=select_dates)) 
         CO2fig.add_traces(go.Scattergl(x=yesterday["時間"],
                                 y=yesterday['CO2濃度'] ,
-                                marker_color='red',
+                                marker_color='orangered',
                                 line_width=3,
                                 yaxis='y1',
                                 name=secondselect_dates))   
