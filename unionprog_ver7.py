@@ -60,36 +60,24 @@ grafustock = st.selectbox(label="表示グラフを選択してください",opt
 
 #1つ目のファイル読み込み
 if uploaded_file0:
-    @st.cache
-    def readcsv():
-        return  pd.read_csv(uploaded_file0, encoding="shift-jis", index_col=[0], parse_dates=[0])
-    df_readfile = readcsv()
+    df_readfile = pd.read_csv(uploaded_file0, encoding="shift-jis", index_col=[0], parse_dates=[0])
     #温室ごとに定義
-    @st.cache
     def ex1():
         return df_readfile[df_readfile["温室"] == 1]
-    @st.cache
     def ex2():
         return df_readfile[df_readfile["温室"] == 2]
-    @st.cache
     def ex3():
         return df_readfile[df_readfile["温室"] == 3]
-    @st.cache
     def ex4():
         return df_readfile[df_readfile["温室"] == 4]
-    @st.cache
     def ex5():
         return df_readfile[df_readfile["温室"] == 5]
-    @st.cache
     def ex6():
         return df_readfile[df_readfile["温室"] == 6]
-    @st.cache
     def ex7():
         return df_readfile[df_readfile["温室"] == 7]
-    @st.cache
     def ex8():
         return df_readfile[df_readfile["温室"] == 8]
-    @st.cache
     def ex9():
         return df_readfile[df_readfile["温室"] == 9]
 
@@ -102,21 +90,15 @@ if uploaded_file0:
     df_ex7 =  ex7()
     df_ex8 =  ex8()
     df_ex9 =  ex9()
-    df_readfile0 = readcsv()
+    df_readfile0 = df_readfile
 
 #2つ目のファイル読み込み
 if uploaded_file1:
-    @st.cache()
-    def readcsv1():
-        return  pd.read_csv(uploaded_file1, encoding="shift-jis",index_col=[0],parse_dates=[0])
-    df_readfile1 = readcsv1()
+    df_readfile1 = pd.read_csv(uploaded_file1, encoding="shift-jis",index_col=[0],parse_dates=[0])
 
 #3つ目のファイル読み込み
 if uploaded_file2:
-    @st.cache()
-    def readcsv2():
-        return  pd.read_csv(uploaded_file2, encoding="shift-jis",index_col=[0],parse_dates=[0])
-    df_readfile2 = readcsv2()
+    df_readfile2 = pd.read_csv(uploaded_file2, encoding="shift-jis",index_col=[0],parse_dates=[0])
 
 #===============データ別4グラフ=======================
 if uploaded_file0 and 'データ別4グラフ' in grafustock:
@@ -145,225 +127,225 @@ if uploaded_file0 and 'データ別4グラフ' in grafustock:
         ondofig.add_traces(go.Scattergl(x=df_ex1[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex1['温度'] ,
                                 marker_color='dodgerblue',
-                                line_width=3,
+                                line_width=1,
                                 name='1',
                                 yaxis='y1'))
         situdofig.add_traces(go.Scattergl(x=df_ex1[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex1['相対湿度'] ,
                                 marker_color='dodgerblue',
-                                line_width=3,
+                                line_width=1,
                                 name='1',
                                 yaxis='y1'))
         nisyafig.add_traces(go.Scattergl(x=df_ex1[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex1['日射'] ,
                                 marker_color='dodgerblue',
-                                line_width=3,
+                                line_width=1,
                                 name='1',
                                 yaxis='y1'))
         CO2fig.add_traces(go.Scattergl(x=df_ex1[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex1['CO2濃度'] ,
                                 marker_color='dodgerblue',
-                                line_width=3,
+                                line_width=1,
                                 name='1',
                                 yaxis='y1'))
     def process_2():
         ondofig.add_traces(go.Scattergl(x=df_ex2[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex2['温度'] ,
                                 marker_color='darkorange',
-                                line_width=3,
+                                line_width=1,
                                 name='2',
                                 yaxis='y1'))
         situdofig.add_traces(go.Scattergl(x=df_ex2[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex2['相対湿度'] ,
                                 marker_color='darkorange',
-                                line_width=3,
+                                line_width=1,
                                 name='2',
                                 yaxis='y1'))
         nisyafig.add_traces(go.Scattergl(x=df_ex2[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex2['日射'] ,
                                 marker_color='darkorange',
-                                line_width=3,
+                                line_width=1,
                                 name='2',
                                 yaxis='y1'))
         CO2fig.add_traces(go.Scattergl(x=df_ex2[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex2['CO2濃度'] ,
                                 marker_color='darkorange',
-                                line_width=3,
+                                line_width=1,
                                 name='2',
                                 yaxis='y1'))
     def process_3():
         ondofig.add_traces(go.Scattergl(x=df_ex3[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex3['温度'] ,
                                 marker_color='mediumseagreen',
-                                line_width=3,
+                                line_width=1,
                                 name='3',
                                 yaxis='y1'))
         situdofig.add_traces(go.Scattergl(x=df_ex3[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex3['相対湿度'] ,
                                 marker_color='mediumseagreen',
-                                line_width=3,
+                                line_width=1,
                                 name='3',
                                 yaxis='y1'))
         nisyafig.add_traces(go.Scattergl(x=df_ex3[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex3['日射'] ,
                                 marker_color='mediumseagreen',
-                                line_width=3,
+                                line_width=1,
                                 name='3',
                                 yaxis='y1'))
         CO2fig.add_traces(go.Scattergl(x=df_ex3[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex3['CO2濃度'] ,
                                 marker_color='mediumseagreen',
-                                line_width=3,
+                                line_width=1,
                                 name='3',
                                 yaxis='y1'))
     def process_4():
         ondofig.add_traces(go.Scattergl(x=df_ex4[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex4['温度'] ,
                                 marker_color='orangered',
-                                line_width=3,
+                                line_width=1,
                                 name='4',
                                 yaxis='y1'))
         situdofig.add_traces(go.Scattergl(x=df_ex4[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex4['相対湿度'] ,
                                 marker_color='red',
-                                line_width=3,
+                                line_width=1,
                                 name='4',
                                 yaxis='y1'))
         nisyafig.add_traces(go.Scattergl(x=df_ex4[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex4['日射'] ,
                                 marker_color='orangered',
-                                line_width=3,
+                                line_width=1,
                                 name='4',
                                 yaxis='y1'))
         CO2fig.add_traces(go.Scattergl(x=df_ex4[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex4['CO2濃度'] ,
                                 marker_color='orangered',
-                                line_width=3,
+                                line_width=1,
                                 name='4',
                                 yaxis='y1'))
     def process_5():
         ondofig.add_traces(go.Scattergl(x=df_ex5[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex5['温度'] ,
                                 marker_color='mediumpurple',
-                                line_width=3,
+                                line_width=1,
                                 name='5',
                                 yaxis='y1'))
         situdofig.add_traces(go.Scattergl(x=df_ex5[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex5['相対湿度'] ,
                                 marker_color='mediumpurple',
-                                line_width=3,
+                                line_width=1,
                                 name='5',
                                 yaxis='y1'))
         nisyafig.add_traces(go.Scattergl(x=df_ex5[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex5['日射'] ,
                                 marker_color='mediumpurple',
-                                line_width=3,
+                                line_width=1,
                                 name='5',
                                 yaxis='y1'))
         CO2fig.add_traces(go.Scattergl(x=df_ex5[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex5['CO2濃度'] ,
                                 marker_color='mediumpurple',
-                                line_width=3,
+                                line_width=1,
                                 name='5',
                                 yaxis='y1'))
     def process_6():
         ondofig.add_traces(go.Scattergl(x=df_ex6[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex6['温度'] ,
                                 marker_color='tan',
-                                line_width=3,
+                                line_width=1,
                                 name='6',
                                 yaxis='y1'))
         situdofig.add_traces(go.Scattergl(x=df_ex6[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex6['相対湿度'] ,
                                 marker_color='tan',
-                                line_width=3,
+                                line_width=1,
                                 name='6',
                                 yaxis='y1'))
         nisyafig.add_traces(go.Scattergl(x=df_ex6[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex6['日射'] ,
                                 marker_color='tan',
-                                line_width=3,
+                                line_width=1,
                                 name='6',
                                 yaxis='y1'))
         CO2fig.add_traces(go.Scattergl(x=df_ex6[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex6['CO2濃度'] ,
                                 marker_color='tan',
-                                line_width=3,
+                                line_width=1,
                                 name='6',
                                 yaxis='y1'))
     def process_7():
         ondofig.add_traces(go.Scattergl(x=df_ex7[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex7['温度'] ,
                                 marker_color='pink',
-                                line_width=3,
+                                line_width=1,
                                 name='7',
                                 yaxis='y1'))
         situdofig.add_traces(go.Scattergl(x=df_ex7[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex7['相対湿度'] ,
                                 marker_color='pink',
-                                line_width=3,
+                                line_width=1,
                                 name='7',
                                 yaxis='y1'))
         nisyafig.add_traces(go.Scattergl(x=df_ex7[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex7['日射'] ,
                                 marker_color='pink',
-                                line_width=3,
+                                line_width=1,
                                 name='7',
                                 yaxis='y1'))
         CO2fig.add_traces(go.Scattergl(x=df_ex7[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex7['CO2濃度'] ,
                                 marker_color='pink',
-                                line_width=3,
+                                line_width=1,
                                 name='7',
                                 yaxis='y1'))
     def process_8():
         ondofig.add_traces(go.Scattergl(x=df_ex8[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex8['温度'] ,
                                 marker_color='slategray',
-                                line_width=3,
+                                line_width=1,
                                 name='8',
                                 yaxis='y1'))
         situdofig.add_traces(go.Scattergl(x=df_ex8[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex8['相対湿度'] ,
                                 marker_color='slategray',
-                                line_width=3,
+                                line_width=1,
                                 name='8',
                                 yaxis='y1'))
         nisyafig.add_traces(go.Scattergl(x=df_ex8[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex8['日射'] ,
                                 marker_color='slategray',
-                                line_width=3,
+                                line_width=1,
                                 name='8',
                                 yaxis='y1'))
         CO2fig.add_traces(go.Scattergl(x=df_ex8[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex8['CO2濃度'] ,
                                 marker_color='slategray',
-                                line_width=3,
+                                line_width=1,
                                 name='8',
                                 yaxis='y1'))
     def process_9():
         ondofig.add_traces(go.Scattergl(x=df_ex9[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex9['温度'] ,
                                 marker_color='rosybrown',
-                                line_width=3,
+                                line_width=1,
                                 name='9',
                                 yaxis='y1'))
         situdofig.add_traces(go.Scattergl(x=df_ex9[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex9['相対湿度'] ,
                                 marker_color='rosybrown',
-                                line_width=3,
+                                line_width=1,
                                 name='9',
                                 yaxis='y1'))
         nisyafig.add_traces(go.Scattergl(x=df_ex9[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex9['日射'] ,
                                 marker_color='rosybrown',
-                                line_width=3,
+                                line_width=1,
                                 name='9',
                                 yaxis='y1'))
         CO2fig.add_traces(go.Scattergl(x=df_ex9[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex9['CO2濃度'] ,
                                 marker_color='rosybrown',
-                                line_width=3,
+                                line_width=1,
                                 name='9',
                                 yaxis='y1'))
                                 
@@ -432,25 +414,25 @@ if uploaded_file0 and '相関2軸グラフ' in grafustock:
     a1 = go.Scattergl(x=chooseonsitu[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y= chooseonsitu['温度'] ,
                                 marker_color='orangered',
-                                line_width=3,
+                                line_width=1,
                                 yaxis='y1',
                                 name='温度')
     a2= go.Scattergl(x=chooseonsitu[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=chooseonsitu['相対湿度'] ,
                                 marker_color='dodgerblue',
-                                line_width=3,
+                                line_width=1,
                                 yaxis='y1',
                                 name='相対湿度')
     a3 = go.Scattergl(x=chooseonsitu[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=chooseonsitu['日射'] ,
                                 marker_color='mediumseagreen',
-                                line_width=3,
+                                line_width=1,
                                 yaxis='y2',
                                 name='日射')
     a4= go.Scattergl(x=chooseonsitu[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=chooseonsitu['CO2濃度'] ,
                                 marker_color='darkorange',
-                                line_width=3,
+                                line_width=1,
                                 yaxis='y2',
                                 name='CO2濃度')
     #レイアウト設定
@@ -528,52 +510,52 @@ if uploaded_file0 and '前日比較グラフ' in grafustock:
         ondofig.add_traces(go.Scattergl(x=selectday["時間"],
                                 y= selectday['温度'] ,
                                 marker_color='mediumseagreen',
-                                line_width=3,
+                                line_width=1,
                                 yaxis='y1',
                                 name=select_dates))
         ondofig.add_traces(go.Scattergl(x=yesterday["時間"],
                                 y=yesterday['温度'] ,
                                 marker_color='orangered',
-                                line_width=3,
+                                line_width=1,
                                 yaxis='y1',
                                 name=secondselect_dates))
     def nisya():
          nisyafig.add_traces(go.Scattergl(x=selectday["時間"],
                                 y= selectday['日射'] ,
                                 marker_color='mediumseagreen',
-                                line_width=3,
+                                line_width=1,
                                 yaxis='y1',
                                 name=select_dates))
          nisyafig.add_traces(go.Scattergl(x=yesterday["時間"],
                                 y=yesterday['日射'] ,
                                 marker_color='orangered',
-                                line_width=3,
+                                line_width=1,
                                 yaxis='y1',
                                 name=secondselect_dates))
     def situdo():
          situdofig.add_traces(go.Scattergl(x=selectday["時間"],
                                 y= selectday['相対湿度'] ,
                                 marker_color='mediumseagreen',
-                                line_width=3,
+                                line_width=1,
                                 yaxis='y1',
                                 name=select_dates))
          situdofig.add_traces(go.Scattergl(x=yesterday["時間"],
                                 y=yesterday['相対湿度'] ,
                                 marker_color='orangered',
-                                line_width=3,
+                                line_width=1,
                                 yaxis='y1',
                                 name=secondselect_dates))
     def CO2():
         CO2fig.add_traces(go.Scattergl(x=selectday["時間"],
                                 y= selectday['CO2濃度'] ,
                                 marker_color='mediumseagreen',
-                                line_width=3,
+                                line_width=1,
                                 yaxis='y1',
                                 name=select_dates)) 
         CO2fig.add_traces(go.Scattergl(x=yesterday["時間"],
                                 y=yesterday['CO2濃度'] ,
                                 marker_color='orangered',
-                                line_width=3,
+                                line_width=1,
                                 yaxis='y1',
                                 name=secondselect_dates))   
     ondo()
@@ -624,66 +606,66 @@ if uploaded_file0 and uploaded_file1 and uploaded_file2 and '複数ファイル�
         ondofig.add_traces(go.Scattergl(x=df_ex0["月日時間"],
                                 y=df_ex0['温度'] ,
                                 marker_color='dodgerblue',
-                                line_width=3,
+                                line_width=1,
                                 name='1',))
         situdofig.add_traces(go.Scattergl(x=df_ex0["月日時間"],
                                 y=df_ex0['相対湿度'] ,
                                 marker_color='dodgerblue',
-                                line_width=3,
+                                line_width=1,
                                 name='1'
                                 ))
         nisyafig.add_traces(go.Scattergl(x=df_ex0["月日時間"],
                                 y=df_ex0['日射'] ,
                                 marker_color='dodgerblue',
-                                line_width=3,
+                                line_width=1,
                                 name='1'))
         CO2fig.add_traces(go.Scattergl(x=df_ex0["月日時間"],
                                 y=df_ex0['CO2濃度'] ,
                                 marker_color='dodgerblue',
-                                line_width=3,
+                                line_width=1,
                                 name='1'))
 
         ondofig.add_traces(go.Scattergl(x=df_ex1["月日時間"],
                                 y=df_ex1['温度'] ,
                                 marker_color='orangered',
-                                line_width=3,
+                                line_width=1,
                                 name='2',))
         situdofig.add_traces(go.Scattergl(x=df_ex1["月日時間"],
                                 y=df_ex1['相対湿度'] ,
                                 marker_color='orangered',
-                                line_width=3,
+                                line_width=1,
                                 name='2'
                                 ))
         nisyafig.add_traces(go.Scattergl(x=df_ex1["月日時間"],
                                 y=df_ex1['日射'] ,
                                 marker_color='orangered',
-                                line_width=3,
+                                line_width=1,
                                 name='2'))
         CO2fig.add_traces(go.Scattergl(x=df_ex1["月日時間"],
                                 y=df_ex1['CO2濃度'] ,
                                 marker_color='orangered',
-                                line_width=3,
+                                line_width=1,
                                 name='2'))
 
         ondofig.add_traces(go.Scattergl(x=df_ex2["月日時間"],
                                 y=df_ex2['温度'] ,
                                 marker_color='mediumseagreen',
-                                line_width=3,
+                                line_width=1,
                                 name='3'))
         situdofig.add_traces(go.Scattergl(x=df_ex2["月日時間"],
                                 y=df_ex2['相対湿度'] ,
                                 marker_color='mediumseagreen',
-                                line_width=3,
+                                line_width=1,
                                 name='3'))
         nisyafig.add_traces(go.Scattergl(x=df_ex2["月日時間"],
                                 y=df_ex2['日射'] ,
                                 marker_color='mediumseagreen',
-                                line_width=3,
+                                line_width=1,
                                 name='3'))
         CO2fig.add_traces(go.Scattergl(x=df_ex2["月日時間"],
                                 y=df_ex2['CO2濃度'] ,
                                 marker_color='mediumseagreen',
-                                line_width=3,
+                                line_width=1,
                                 name='3'))
     hikaku1()
 
@@ -725,50 +707,50 @@ if uploaded_file0 and uploaded_file1 and not uploaded_file2 and '複数ファイ
         ondofig.add_traces(go.Scattergl(x=df_ex1["月日時間"],
                                 y= df_ex1['温度'] ,
                                 marker_color='dodgerblue',
-                                line_width=3,
+                                line_width=1,
                                 yaxis='y1',
                                 name='1'))
         situdofig.add_traces(go.Scattergl(x=df_ex1["月日時間"],
                                 y=df_ex1['相対湿度'] ,
                                 marker_color='dodgerblue',
-                                line_width=3,
+                                line_width=1,
                                 name='1',
                                 yaxis='y1'))
         nisyafig.add_traces(go.Scattergl(x=df_ex1["月日時間"],
                                 y=df_ex1['日射'] ,
                                 marker_color='dodgerblue',
-                                line_width=3,
+                                line_width=1,
                                 name='1',
                                 yaxis='y1'))
         CO2fig.add_traces(go.Scattergl(x=df_ex1["月日時間"],
                                 y=df_ex1['CO2濃度'] ,
                                 marker_color='dodgerblue',
-                                line_width=3,
+                                line_width=1,
                                 name='1',
                                 yaxis='y1'))
 
         ondofig.add_traces(go.Scattergl(x=df_ex2["月日時間"],
                                 y=df_ex2['温度'] ,
                                 marker_color='orangered',
-                                line_width=3,
+                                line_width=1,
                                 name='2',
                                 yaxis='y1'))
         situdofig.add_traces(go.Scattergl(x=df_ex2["月日時間"],
                                 y=df_ex2['相対湿度'] ,
                                 marker_color='orangered',
-                                line_width=3,
+                                line_width=1,
                                 name='2',
                                 yaxis='y1'))
         nisyafig.add_traces(go.Scattergl(x=df_ex2["月日時間"],
                                 y=df_ex2['日射'] ,
                                 marker_color='orangered',
-                                line_width=3,
+                                line_width=1,
                                 name='2',
                                 yaxis='y1'))
         CO2fig.add_traces(go.Scattergl(x=df_ex2["月日時間"],
                                 y=df_ex2['CO2濃度'] ,
                                 marker_color='orangered',
-                                line_width=3,
+                                line_width=1,
                                 name='2',
                                 yaxis='y1'))
     hikaku2()
@@ -787,3 +769,4 @@ if not uploaded_file0 and not uploaded_file1 and not uploaded_file2 and '複数�
     st.write("複数ファイルをアップロードしてください")
 if uploaded_file0 and not uploaded_file1 and not uploaded_file2 and '複数ファイルグラフ' in grafustock:
     st.write("複数ファイルをアップロードしてください")
+
