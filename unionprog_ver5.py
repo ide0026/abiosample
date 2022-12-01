@@ -145,7 +145,7 @@ if uploaded_file0 and 'データ別4グラフ' in grafustock:
     def process_1():
         ondofig.add_traces(go.Scattergl(x=df_ex1[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex1['温度'] ,
-                                marker_color='paleturquoise',
+                                marker_color='dodgerblue',
                                 line_width=3,
                                 name='1',
                                 yaxis='y1'))
@@ -157,13 +157,13 @@ if uploaded_file0 and 'データ別4グラフ' in grafustock:
                                 yaxis='y1'))
         nisyafig.add_traces(go.Scattergl(x=df_ex1[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex1['日射'] ,
-                                marker_color='paleturquoise',
+                                marker_color='dodgerblue',
                                 line_width=3,
                                 name='1',
                                 yaxis='y1'))
         CO2fig.add_traces(go.Scattergl(x=df_ex1[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=df_ex1['CO2濃度'] ,
-                                marker_color='paleturquoise',
+                                marker_color='dodgerblue',
                                 line_width=3,
                                 name='1',
                                 yaxis='y1'))
