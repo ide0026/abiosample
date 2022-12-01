@@ -528,7 +528,7 @@ if uploaded_file0 and '前日比較グラフ' in grafustock:
     def ondo():
         ondofig.add_traces(go.Scattergl(x=selectday["時間"],
                                 y= selectday['温度'] ,
-                                marker_color='palegreen',
+                                marker_color='mediumseagreen',
                                 line_width=3,
                                 yaxis='y1',
                                 name=select_dates))
