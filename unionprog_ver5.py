@@ -431,13 +431,13 @@ if uploaded_file0 and '相関2軸グラフ' in grafustock:
     #温室ごとグラフデータ定義
     a1 = go.Scattergl(x=chooseonsitu[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y= chooseonsitu['温度'] ,
-                                marker_color='dodgerblue',
+                                marker_color='orangereddodgerblue',
                                 line_width=3,
                                 yaxis='y1',
                                 name='温度')
     a2= go.Scattergl(x=chooseonsitu[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=chooseonsitu['相対湿度'] ,
-                                marker_color='orangered',
+                                marker_color='dodgerblue',
                                 line_width=3,
                                 yaxis='y1',
                                 name='相対湿度')                         
