@@ -49,11 +49,10 @@ st.title("環境分析")
 # データフレーム読み込み
 st.sidebar.write("""## ファイルアップロード""")
 uploaded_file0 = st.sidebar.file_uploader("ファイル➀をアップロードしてください", type='csv',key=0)
-checkbox = st.sidebar.checkbox('複数ファイルアップロード')
-if checkbox:
+with st.sidebar.expander("複数ファイルをアップロード"):
         # チェックが入っているときはデータフレームを書き出す
-        uploaded_file1 = st.sidebar.file_uploader("ファイル➁をアップロードしてください.", type='csv',key=1)
-        uploaded_file2 = st.sidebar.file_uploader("ファイル➂をアップロードしてください.", type='csv',key=2)
+        uploaded_file1 = st.file_uploader("ファイル➁をアップロードしてください.", type='csv',key=1)
+        uploaded_file2 = st.file_uploader("ファイル➂をアップロードしてください.", type='csv',key=2)
 
 #表示グラフの切り替え
 listgrafu = ['データ別4グラフ','相関2軸グラフ','前日比較グラフ','複数ファイルグラフ']
@@ -106,14 +105,14 @@ if uploaded_file0:
     df_readfile0 = readcsv()
 
 #2つ目のファイル読み込み
-if checkbox == True and uploaded_file1:
+if uploaded_file1:
     @st.cache()
     def readcsv1():
         return  pd.read_csv(uploaded_file1, encoding="shift-jis",index_col=[0],parse_dates=[0])
     df_readfile1 = readcsv1()
 
 #3つ目のファイル読み込み
-if checkbox == True and uploaded_file2:
+if uploaded_file2:
     @st.cache()
     def readcsv2():
         return  pd.read_csv(uploaded_file2, encoding="shift-jis",index_col=[0],parse_dates=[0])
@@ -592,7 +591,7 @@ if uploaded_file0 and '前日比較グラフ' in grafustock:
 
 
 #===============3ファイル比較グラフ=======================
-if checkbox == True and uploaded_file0 and uploaded_file1 and uploaded_file2 and '複数ファイルグラフ' in grafustock:
+if uploaded_file0 and uploaded_file1 and uploaded_file2 and '複数ファイルグラフ' in grafustock:
     #ヘッダー
     st.header("3ファイルグラフ")
     #サイドバーの温室番号選ぶ
@@ -698,7 +697,7 @@ if checkbox == True and uploaded_file0 and uploaded_file1 and uploaded_file2 and
     st.plotly_chart(CO2fig)
 
 #===============2ファイル比較グラフ=======================
-if checkbox == True and uploaded_file0 and uploaded_file1 and not uploaded_file2 and '複数ファイルグラフ' in grafustock:
+if uploaded_file0 and uploaded_file1 and not uploaded_file2 and '複数ファイルグラフ' in grafustock:
     #ヘッダー
     st.header("2ファイル比較グラフ")
 
@@ -784,9 +783,7 @@ if checkbox == True and uploaded_file0 and uploaded_file1 and not uploaded_file2
     st.plotly_chart(CO2fig)
 
 #================エラー回避=====================
-if checkbox == True and not uploaded_file0 and not uploaded_file1 and not uploaded_file2 and '複数ファイルグラフ' in grafustock:
+if not uploaded_file0 and not uploaded_file1 and not uploaded_file2 and '複数ファイルグラフ' in grafustock:
     st.write("ファイルをアップロードしてください")
-if checkbox == False and uploaded_file0 and '複数ファイルグラフ' in grafustock :
-    st.write("ファイルをアップロードしてください")
-if checkbox == True and uploaded_file0 and not uploaded_file1 and not uploaded_file2 and '複数ファイルグラフ' in grafustock:
+if uploaded_file0 and not uploaded_file1 and not uploaded_file2 and '複数ファイルグラフ' in grafustock:
     st.write("ファイルをアップロードしてください")
