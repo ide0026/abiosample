@@ -450,7 +450,7 @@ if uploaded_file0 and '相関2軸グラフ' in grafustock:
                                 name='日射')               
     a4= go.Scattergl(x=chooseonsitu[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")].index,
                                 y=chooseonsitu['CO2濃度'] ,
-                                marker_color='coral',
+                                marker_color='darkorange',
                                 line_width=3,
                                 yaxis='y2',
                                 name='CO2濃度')
