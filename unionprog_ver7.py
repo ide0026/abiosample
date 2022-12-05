@@ -14,7 +14,7 @@ layout_Ondo = go.Layout(title=dict(text='<b>【温度】'),
                     x=0.32,
                     y=1.0,
                     orientation='h'    
-                    ),width=1400,height=550)
+                    ),width=1500,height=550)
 layout_Situdo = go.Layout(title=dict(text='<b>【相対湿度】'),
                     yaxis = dict(side = 'left',range = [0, 110]),
                     font=dict(size=15),
