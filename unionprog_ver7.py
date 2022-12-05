@@ -442,7 +442,7 @@ if uploaded_file1 and '相関2軸グラフ' in grafustock:
               legend=dict(xanchor='left',yanchor='bottom',x=0.32,y=1.0,orientation='h'))
     #グラフ表示
     fig = dict(data = [ondochart, situdochart,nisyachart, CO2chart],layout=layout)
-    st.plotly_chart(fig,width=900,height=1200)
+    st.plotly_chart(fig,,width=1450,height=520)
 
 #===============前日比較グラフ=======================
 if uploaded_file1 and '3.前日比較グラフ' in grafustock:
