@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.graph_objects as go
 
 #ページ初期設定
-st.set_page_config(page_title="環境分析",layout="wide",initial_sidebar_state="auto")
+st.set_page_config(page_title="環境分析",initial_sidebar_state="auto")
 
  #レイアウト設定 
 layout_Ondo = go.Layout(title=dict(text='<b>【温度】'),
