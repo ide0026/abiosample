@@ -439,7 +439,7 @@ if uploaded_file1 and '相関2軸グラフ' in grafustock:
     layout = go.Layout(title=dict(text='<b>【相関グラフ】'),xaxis = dict(title = '日付'), font=dict(size=15),
               yaxis1 = dict(side = 'left',range = [0, 110],showgrid=False),                            
               yaxis2 = dict(side = 'right', overlaying = 'y1', range = [0,1100],showgrid=False),
-              legend=dict(xanchor='left',yanchor='bottom',x=0.32,y=1.0,orientation='h'),width=1450,height=800)
+              legend=dict(xanchor='left',yanchor='bottom',x=0.32,y=1.0,orientation='h'),width=1450,height=700)
     #グラフ表示
     fig = dict(data = [ondochart, situdochart,nisyachart, CO2chart],layout=layout)
     st.plotly_chart(fig)
