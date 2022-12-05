@@ -1123,3 +1123,4 @@ if not uploaded_file1 and not uploaded_file2 and not uploaded_file3 and '複数�
     st.warning("複数ファイルをアップロードしてください")
 if uploaded_file1 and not uploaded_file2 and not uploaded_file3 and '複数ファイルグラフ' in grafustock:
     st.warning("複数ファイルをアップロードしてください")
+
