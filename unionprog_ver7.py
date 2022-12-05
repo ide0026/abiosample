@@ -14,7 +14,7 @@ layout_Ondo = go.Layout(title=dict(text='<b>【温度】'),
                     x=0.32,
                     y=1.0,
                     orientation='h'    
-                    ),width=1450,height=700)
+                    ),width=1450,height=00)
 layout_Situdo = go.Layout(title=dict(text='<b>【相対湿度】'),
                     yaxis = dict(side = 'left',range = [0, 110]),
                     font=dict(size=15),
@@ -127,7 +127,7 @@ if uploaded_file1 and '1.データ別4グラフ' in grafustock:
                                 name='1',
                                 yaxis='y1'))
         situdofig.add_traces(go.Scattergl(x=selectday1['データ生成日時'],
-                                y=df_ex1['相対湿度'] ,
+                                y=selectday1['相対湿度'] ,
                                 marker_color='dodgerblue',
                                 line_width=1,
                                 name='1',
@@ -200,7 +200,7 @@ if uploaded_file1 and '1.データ別4グラフ' in grafustock:
                                 name='4',
                                 yaxis='y1'))
         nisyafig.add_traces(go.Scattergl(x=selectday4['データ生成日時'],
-                                y=df_ex4['日射'] ,
+                                y=selectday4['日射'] ,
                                 marker_color='orangered',
                                 line_width=1,
                                 name='4',
