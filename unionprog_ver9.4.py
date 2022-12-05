@@ -961,7 +961,7 @@ if uploaded_file1 and uploaded_file2 and uploaded_file3 and '4.複数ファイ�
                                 y=df_ex0['温度'] ,
                                 marker_color='dodgerblue',
                                 line_width=1,
-                                name='1',))
+                                name='ファイル1',))
         situdofig.add_traces(go.Scattergl(x=df_ex0["月日時間"],
                                 y=df_ex0['相対湿度'] ,
                                 marker_color='dodgerblue',
