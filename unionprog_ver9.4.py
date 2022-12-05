@@ -425,13 +425,13 @@ if uploaded_file1 and '相関2軸グラフ' in grafustock:
                         name='相対湿度')
     nisyachart = go.Scattergl(x=selectday['データ生成日時'],
                         y=selectday['日射'] ,
-                        marker_color='mediumseagreen',
+                        marker_color='darkorange',
                         line_width=1,
                         yaxis='y2',
                         name='日射',)
     CO2chart = go.Scattergl(x=selectday['データ生成日時'],
                         y=selectday['CO2濃度'] ,
-                        marker_color='darkorange',
+                        marker_color='mediumseagreen',
                         line_width=1,
                         yaxis='y2',
                         name='CO2濃度')
