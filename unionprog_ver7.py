@@ -23,7 +23,7 @@ layout_Situdo = go.Layout(title=dict(text='<b>【相対湿度】'),
                     x=0.32,
                     y=1.0,
                     orientation='h'    
-                    ),width=900,height=700)
+                    ),width=900,height=600)
 layout_Nisya = go.Layout(title=dict(text='<b>【日射】'),
                     yaxis = dict(side = 'left', range = [0,1100]),
                     font=dict(size=15),
