@@ -14,7 +14,7 @@ layout_Ondo = go.Layout(title=dict(text='<b>【温度】'),
                     x=0.32,
                     y=1.0,
                     orientation='h'    
-                    ),width=1450,height=550)
+                    ),width=1450,height=520)
 layout_Situdo = go.Layout(title=dict(text='<b>【相対湿度】'),
                     yaxis = dict(side = 'left',range = [0, 110]),
                     font=dict(size=15),
@@ -23,7 +23,7 @@ layout_Situdo = go.Layout(title=dict(text='<b>【相対湿度】'),
                     x=0.32,
                     y=1.0,
                     orientation='h'    
-                    ),width=1400,height=550)
+                    ),width=1400,height=520)
 layout_Nisya = go.Layout(title=dict(text='<b>【日射】'),
                     yaxis = dict(side = 'left', range = [0,1100]),
                     font=dict(size=15),
@@ -32,7 +32,7 @@ layout_Nisya = go.Layout(title=dict(text='<b>【日射】'),
                     x=0.32,
                     y=1.0,
                     orientation='h'    
-                    ),width=1400,height=550)
+                    ),width=1400,height=520)
 layout_Co2 = go.Layout(title=dict(text='<b>【CO2濃度】'),
                     yaxis = dict(side = 'left', range = [0,1000]),
                     font=dict(size=15),
@@ -41,7 +41,7 @@ layout_Co2 = go.Layout(title=dict(text='<b>【CO2濃度】'),
                     x=0.32,
                     y=1.0,
                     orientation='h'    
-                    ),width=1400,height=550)
+                    ),width=1400,height=520)
                             
 #タイトル
 st.title("環境分析")
