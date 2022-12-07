@@ -80,10 +80,17 @@ if uploaded_file1:
 #2つ目のファイル読み込み
 if uploaded_file2:
     df_readfile2 = pd.read_csv(uploaded_file2, encoding="shift-jis",index_col=[0],parse_dates=[0])
-
+    df_changereadfile2 = df_readfile2.reset_index()
+    df_changereadfile2 = df_changereadfile2.set_index("データ生成日時",drop=False)
+    df_changereadfile2.insert(1,"月日2",df_changereadfile2["データ生成日時"].dt.strftime("%m月%d日"))
+    df_readfile2 = df_changereadfile2
 #3つ目のファイル読み込み
 if uploaded_file3:
     df_readfile3 = pd.read_csv(uploaded_file3, encoding="shift-jis",index_col=[0],parse_dates=[0])
+    df_changereadfile3 = df_readfile3.reset_index()
+    df_changereadfile3 = df_changereadfile3.set_index("データ生成日時",drop=False)
+    df_changereadfile3.insert(1,"月日2",df_changereadfile3["データ生成日時"].dt.strftime("%m月%d日"))
+    df_readfile3 = df_changereadfile3
 
 #===============データ別4グラフ=======================
 if uploaded_file1 and '1.データ別4グラフ' in grafustock:
@@ -207,7 +214,7 @@ if uploaded_file1 and '1.データ別4グラフ' in grafustock:
                                 yaxis='y1'))
         situdofig.add_traces(go.Scattergl(x=selectday4['データ生成日時'],
                                 y=selectday4['相対湿度'] ,
-                                marker_color='red',
+                                marker_color='orangered',
                                 line_width=1,
                                 name='4',
                                 yaxis='y1'))
@@ -935,6 +942,15 @@ if uploaded_file1 and uploaded_file2 and uploaded_file3 and '4.複数ファイ�
     stocks = st.sidebar.selectbox(label="温室番号の選択",
                 options = listnum)
     select_onsitu = int(stocks[0])
+    if st.sidebar.checkbox("ファイル①の月日を選択する"):
+        select_dates = st.sidebar.date_input('①表示日付の選択',value=(df_readfile1.index[0],df_readfile1.index[-1]),min_value=df_readfile1.index[0],max_value=df_readfile1.index[-1])
+        df_readfile1 = df_readfile1[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")]
+    if st.sidebar.checkbox("ファイル②の月日を選択する"):
+        select_dates2 = st.sidebar.date_input('②表示日付の選択',value=(df_readfile2.index[0],df_readfile2.index[-1]),min_value=df_readfile2.index[0],max_value=df_readfile2.index[-1])
+        df_readfile2 = df_readfile2[select_dates2[0].strftime("%Y-%m-%d"):select_dates2[-1].strftime("%Y-%m-%d")]
+    if st.sidebar.checkbox("ファイル③の月日を選択する"):
+        select_dates3 = st.sidebar.date_input('③表示日付の選択',value=(df_readfile3.index[0],df_readfile3.index[-1]),min_value=df_readfile3.index[0],max_value=df_readfile3.index[-1])
+        df_readfile3 = df_readfile3[select_dates3[0].strftime("%Y-%m-%d"):select_dates3[-1].strftime("%Y-%m-%d")]
 
     #温室の識別
     def ex0():
@@ -1036,12 +1052,17 @@ if uploaded_file1 and uploaded_file2 and uploaded_file3 and '4.複数ファイ�
 if uploaded_file1 and uploaded_file2 and not uploaded_file3 and '複数ファイルグラフ' in grafustock:
     #ヘッダー
     st.header("2ファイル比較グラフ")
-
     #サイドバーの温室番号選ぶ
     listnum = ['1','2','3','4','5','6','7','8','9']
     stocks = st.sidebar.selectbox(label="温室番号の選択",
                 options = listnum,key=4)
     select_onsitu = int(stocks[0])
+    if st.sidebar.checkbox("ファイル①の月日を選択する"):
+        select_dates = st.sidebar.date_input('①表示日付の選択',value=(df_readfile1.index[0],df_readfile1.index[-1]),min_value=df_readfile1.index[0],max_value=df_readfile1.index[-1])
+        df_readfile1 = df_readfile1[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")]
+    if st.sidebar.checkbox("ファイル②の月日を選択する"):
+        select_dates2 = st.sidebar.date_input('②表示日付の選択',value=(df_readfile2.index[0],df_readfile2.index[-1]),min_value=df_readfile2.index[0],max_value=df_readfile2.index[-1])
+        df_readfile2 = df_readfile2[select_dates2[0].strftime("%Y-%m-%d"):select_dates2[-1].strftime("%Y-%m-%d")]
 
     #温室の識別
     def ex1():
