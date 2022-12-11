@@ -99,7 +99,7 @@ if uploaded_file1 and '1.データ別4グラフ' in grafustock:
 
     #サイドバーの日付選ぶ
     st.sidebar.write("""## 表示日付・温室選択""")
-    select_dates = st.sidebar.date_input('表示日付の選択',value=(df_readfile1.index[0],df_readfile1.index[-1]),min_value=df_readfile1.index[0],max_value=df_readfile1.index[-1])
+    select_dates = st.sidebar.date_input('表示日付の選択',value=(df_readfile1.index[-1],df_readfile1.index[-1]),min_value=df_readfile1.index[0],max_value=df_readfile1.index[-1])
 
     #温室番号選ぶ
     def sentaku():
@@ -391,7 +391,7 @@ if uploaded_file1 and '相関2軸グラフ' in grafustock:
     st.header("相関2軸グラフ")
 
     st.sidebar.write("""## 表示日付・温室選択""")
-    select_dates = st.sidebar.date_input('表示日付の選択',value=(df_ex1.index[0],df_ex1.index[-1]),min_value=df_ex1.index[0],max_value=df_ex1.index[-1])
+    select_dates = st.sidebar.date_input('表示日付の選択',value=(df_ex1.index[-1],df_ex1.index[-1]),min_value=df_ex1.index[0],max_value=df_ex1.index[-1])
     
     #温室番号選ぶ
     listnum = ['1','2','3','4','5','6','7','8','9']
