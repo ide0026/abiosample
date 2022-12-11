@@ -55,7 +55,7 @@ with st.sidebar.expander("複数ファイルをアップロード"):
         uploaded_file3 = st.file_uploader("ファイル➂をアップロードしてください.", type='csv',key=2)
 
 #表示グラフの切り替え
-listgrafu = ['1.データ別4グラフ','2.相関2軸グラフ','3.前日比較グラフ','4.複数ファイルグラフ']
+listgrafu = ['1.データ別4グラフ','2.相関2軸グラフ','3.近日比較グラフ','4.複数ファイルグラフ']
 grafustock = st.selectbox(label="表示グラフを選択してください",options=listgrafu,key=3)
 
 #1つ目のファイル読み込み
@@ -451,10 +451,10 @@ if uploaded_file1 and '相関2軸グラフ' in grafustock:
     fig = dict(data = [ondochart, situdochart,nisyachart, CO2chart],layout=layout)
     st.plotly_chart(fig)
 
-#===============前日比較グラフ=======================
-if uploaded_file1 and '3.前日比較グラフ' in grafustock:
+#===============近日比較グラフ=======================
+if uploaded_file1 and '3.近日比較グラフ' in grafustock:
     #ヘッダー
-    st.header("前日比較グラフ")
+    st.header("近日比較グラフ")
     #サイドバーの日付選ぶ
     st.sidebar.write("""## 表示日付・温室選択""")
     #指定日の指定
