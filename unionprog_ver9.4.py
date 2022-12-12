@@ -933,7 +933,7 @@ if uploaded_file1 and '3.近日比較グラフ' in grafustock:
     #CO2濃度グラフ表示
     st.plotly_chart(CO2fig)
 
-#===============3ファイル比較グラフ=======================
+    #===============3ファイル比較グラフ=======================
 if uploaded_file1 and uploaded_file2 and uploaded_file3 and '4.複数ファイルグラフ' in grafustock:
     #ヘッダー
     st.header("3ファイルグラフ")
@@ -942,37 +942,6 @@ if uploaded_file1 and uploaded_file2 and uploaded_file3 and '4.複数ファイ�
     stocks = st.sidebar.selectbox(label="温室番号の選択",
                 options = listnum)
     select_onsitu = int(stocks[0])
-    def ex0():
-        return df_readfile1[df_readfile1["温室"] == select_onsitu]
-    def ex1():
-        return df_readfile2[df_readfile2["温室"] == select_onsitu]
-    def ex2():
-        return df_readfile3[df_readfile3["温室"] == select_onsitu]
-    stocks_file = st.selectbox("ファイルの順番を指定する",options=["①,②,③","①,③,②","②,①,③","②,③,①","③,①,②","③,②,①"])
-    if stocks_file == "①,②,③":
-        df_ex0 = ex0()
-        df_ex1 = ex1()
-        df_ex2 = ex2()
-    elif stocks_file == "①,③,②":
-        df_ex0 = ex0()
-        df_ex2 = ex1()
-        df_ex1 = ex2()
-    elif stocks_file == "②,①,③":
-        df_ex1 = ex0()
-        df_ex0 = ex1()
-        df_ex2 = ex2()
-    elif stocks_file == "②,③,①":
-        df_ex1 = ex0()
-        df_ex2 = ex1()
-        df_ex0 = ex2()
-    elif stocks_file == "③,①,②":
-        df_ex2 = ex0()
-        df_ex0 = ex1()
-        df_ex1 = ex2()
-    elif stocks_file == "③,②,①":
-        df_ex2 = ex0()
-        df_ex1 = ex1()
-        df_ex0 = ex2()
     if st.sidebar.checkbox("ファイル①の月日を選択する"):
         select_dates = st.sidebar.date_input('①表示日付の選択',value=(df_readfile1.index[0],df_readfile1.index[-1]),min_value=df_readfile1.index[0],max_value=df_readfile1.index[-1])
         df_readfile1 = df_readfile1[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")]
@@ -982,16 +951,17 @@ if uploaded_file1 and uploaded_file2 and uploaded_file3 and '4.複数ファイ�
     if st.sidebar.checkbox("ファイル③の月日を選択する"):
         select_dates3 = st.sidebar.date_input('③表示日付の選択',value=(df_readfile3.index[0],df_readfile3.index[-1]),min_value=df_readfile3.index[0],max_value=df_readfile3.index[-1])
         df_readfile3 = df_readfile3[select_dates3[0].strftime("%Y-%m-%d"):select_dates3[-1].strftime("%Y-%m-%d")]
+
     #温室の識別
-    # def ex0():
-    #     return df_readfile1[df_readfile1["温室"] == select_onsitu]
-    # def ex1():
-    #     return df_readfile2[df_readfile2["温室"] == select_onsitu]
-    # def ex2():
-    #     return df_readfile3[df_readfile3["温室"] == select_onsitu]
-    # df_ex0 = ex0()
-    # df_ex1 = ex1()
-    # df_ex2 = ex2()
+    def ex0():
+        return df_readfile1[df_readfile1["温室"] == select_onsitu]
+    def ex1():
+        return df_readfile2[df_readfile2["温室"] == select_onsitu]
+    def ex2():
+        return df_readfile3[df_readfile3["温室"] == select_onsitu]
+    df_ex0 = ex0()
+    df_ex1 = ex1()
+    df_ex2 = ex2()
 
     #ヘッダー
     st.header("温度・相対湿度・日射・CO2濃度のグラフ")
@@ -1087,37 +1057,20 @@ if uploaded_file1 and uploaded_file2 and not uploaded_file3 and '複数ファイ
     stocks = st.sidebar.selectbox(label="温室番号の選択",
                 options = listnum,key=4)
     select_onsitu = int(stocks[0])
+    if st.sidebar.checkbox("ファイル①の月日を選択する"):
+        select_dates = st.sidebar.date_input('①表示日付の選択',value=(df_readfile1.index[0],df_readfile1.index[-1]),min_value=df_readfile1.index[0],max_value=df_readfile1.index[-1])
+        df_readfile1 = df_readfile1[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")]
+    if st.sidebar.checkbox("ファイル②の月日を選択する"):
+        select_dates2 = st.sidebar.date_input('②表示日付の選択',value=(df_readfile2.index[0],df_readfile2.index[-1]),min_value=df_readfile2.index[0],max_value=df_readfile2.index[-1])
+        df_readfile2 = df_readfile2[select_dates2[0].strftime("%Y-%m-%d"):select_dates2[-1].strftime("%Y-%m-%d")]
+
+    #温室の識別
     def ex1():
         return df_readfile1[df_readfile1["温室"] == select_onsitu]
     def ex2():
         return df_readfile2[df_readfile2["温室"] == select_onsitu]
-    if st.checkbox("メインファイル変更"):
-            df_ex2 = ex1()
-            df_ex1 = ex2()
-    else:
-            df_ex1 = ex1()
-            df_ex2 = ex2()
-    if st.sidebar.checkbox("ファイル①の月日を選択する"):
-        select_dates = st.sidebar.date_input('①表示日付の選択',value=(df_readfile1.index[0],df_readfile1.index[-1]),min_value=df_readfile1.index[0],max_value=df_readfile1.index[-1])
-        df_readfile1 = df_readfile1[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")]
-        # df_readfile1 = df_readfile1.rename(columns={'データ生成日時':'生成日時'})
-        # df_readfile1 =df_readfile1.drop(columns='データ生成日時')
-        # df_readfile1 = df_readfile1.reset_index(inplace = True)
-        # df_readfile1 = df_readfile1.sort_values("生成日時")
-    if st.sidebar.checkbox("ファイル②の月日を選択する"):
-        select_dates2 = st.sidebar.date_input('②表示日付の選択',value=(df_readfile2.index[0],df_readfile2.index[-1]),min_value=df_readfile2.index[0],max_value=df_readfile2.index[-1])
-        df_readfile2 = df_readfile2[select_dates2[0].strftime("%Y-%m-%d"):select_dates2[-1].strftime("%Y-%m-%d")]
-        # df_readfile2 = df_readfile2.rename(columns={'データ生成日時':'生成日時'})
-        # df_readfile2 = df_readfile2.drop(columns='データ生成日時')
-        # df_readfile2 = df_readfile2.reset_index(inplace = True)
-        # df_readfile2 = df_readfile2.sort_values("生成日時")
-    #温室の識別
-    # def ex1():
-    #     return df_readfile1[df_readfile1["温室"] == select_onsitu]
-    # def ex2():
-    #     return df_readfile2[df_readfile2["温室"] == select_onsitu]
-    # df_ex1 = ex1()
-    # df_ex2 = ex2()
+    df_ex1 = ex1()
+    df_ex2 = ex2()
 
     #温室ごとグラフデータ定義
     ondofig = go.Figure(layout=layout_Ondo)
