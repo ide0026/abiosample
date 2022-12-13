@@ -942,12 +942,12 @@ if uploaded_file1 and uploaded_file2 and uploaded_file3 and '4.複数ファイ�
     stocks = st.sidebar.selectbox(label="温室番号の選択",
                 options = listnum)
     select_onsitu = int(stocks[0])
-#     def ex0():
-#         return df_readfile1[df_readfile1["温室"] == select_onsitu]
-#     def ex1():
-#         return df_readfile2[df_readfile2["温室"] == select_onsitu]
-#     def ex2():
-#         return df_readfile3[df_readfile3["温室"] == select_onsitu]
+    def ex0():
+        return df_readfile1[df_readfile1["温室"] == select_onsitu]
+    def ex1():
+        return df_readfile2[df_readfile2["温室"] == select_onsitu]
+    def ex2():
+        return df_readfile3[df_readfile3["温室"] == select_onsitu]
     # stocks_file = st.selectbox("ファイルの順番を指定する",options=["①,②,③","①,③,②","②,①,③","②,③,①","③,①,②","③,②,①"])
     # if stocks_file == "①,②,③":
     #     df_ex0 = ex0()
@@ -982,12 +982,12 @@ if uploaded_file1 and uploaded_file2 and uploaded_file3 and '4.複数ファイ�
     if st.sidebar.checkbox("ファイル③の月日を選択する"):
         select_dates3 = st.sidebar.date_input('③表示日付の選択',value=(df_readfile3.index[0],df_readfile3.index[-1]),min_value=df_readfile3.index[0],max_value=df_readfile3.index[-1])
         df_readfile3 = df_readfile3[select_dates3[0].strftime("%Y-%m-%d"):select_dates3[-1].strftime("%Y-%m-%d")]
-    def ex0():
-        return df_readfile1[df_readfile1["温室"] == select_onsitu]
-    def ex1():
-        return df_readfile2[df_readfile2["温室"] == select_onsitu]
-    def ex2():
-        return df_readfile3[df_readfile3["温室"] == select_onsitu]
+#     def ex0():
+#         return df_readfile1[df_readfile1["温室"] == select_onsitu]
+#     def ex1():
+#         return df_readfile2[df_readfile2["温室"] == select_onsitu]
+#     def ex2():
+#         return df_readfile3[df_readfile3["温室"] == select_onsitu]
 #     stocks_file = st.selectbox("ファイルの順番を指定する",options=["①,②,③","①,③,②","②,①,③","②,③,①","③,①,②","③,②,①"])
 #     if stocks_file == "①,②,③":
 #         df_ex0 = ex0()
