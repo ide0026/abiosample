@@ -280,25 +280,25 @@ if uploaded_file1 and '1.データ別4グラフ' in grafustock:
         selectday7 = df_ex7[select_dates[0].strftime("%Y-%m-%d"):select_dates[-1].strftime("%Y-%m-%d")]
         ondofig.add_traces(go.Scattergl(x=selectday7['データ生成日時'],
                                 y=selectday7['温度'] ,
-                                marker_color='pink',
+                                marker_color='hotpink',
                                 line_width=1,
                                 name='7',
                                 yaxis='y1'))
         situdofig.add_traces(go.Scattergl(x=selectday7['データ生成日時'],
                                 y=selectday7['相対湿度'] ,
-                                marker_color='pink',
+                                marker_color='hotpink',
                                 line_width=1,
                                 name='7',
                                 yaxis='y1'))
         nisyafig.add_traces(go.Scattergl(x=selectday7['データ生成日時'],
                                 y=selectday7['日射'] ,
-                                marker_color='pink',
+                                marker_color='hotpink',
                                 line_width=1,
                                 name='7',
                                 yaxis='y1'))
         CO2fig.add_traces(go.Scattergl(x=selectday7['データ生成日時'],
                                 y=selectday7['CO2濃度'] ,
-                                marker_color='pink',
+                                marker_color='hotpink',
                                 line_width=1,
                                 name='7',
                                 yaxis='y1'))
@@ -675,7 +675,7 @@ if uploaded_file1 and '3.近日比較グラフ' in grafustock:
     def nisya_2():
         nisyafig.add_traces(go.Scattergl(x=third["時間"],
                                 y= third['日射'] ,
-                                marker_color='pink',
+                                marker_color='hotpink',
                                 line_width=1,
                                 yaxis='y1',
                                 name=thirdselect_dates))
@@ -724,7 +724,7 @@ if uploaded_file1 and '3.近日比較グラフ' in grafustock:
     def situdo_2():
         situdofig.add_traces(go.Scattergl(x=third["時間"],
                                 y= third['相対湿度'] ,
-                                marker_color='pink',
+                                marker_color='hotpink',
                                 line_width=1,
                                 yaxis='y1',
                                 name=thirdselect_dates))
@@ -773,7 +773,7 @@ if uploaded_file1 and '3.近日比較グラフ' in grafustock:
     def CO2_2():
         CO2fig.add_traces(go.Scattergl(x=third["時間"],
                                 y= third['CO2濃度'] ,
-                                marker_color='pink',
+                                marker_color='hotpink',
                                 line_width=1,
                                 yaxis='y1',
                                 name=thirdselect_dates))
